@@ -218,7 +218,7 @@ body::after {
   background: transparent;
 
   font-size:
-    clamp(64px, 6vw, 112px);
+    clamp(64px, 6vw, 122px);
 
   font-weight: 900;
 
@@ -724,7 +724,7 @@ body::after {
       var(--text-finance);
 
     font-size:
-      clamp(64px, 6vw, 112px);
+      clamp(64px, 6vw, 92px);
 
     line-height: 0.88;
 
@@ -906,7 +906,7 @@ body::after {
 
 
   .headline-large {
-    font-size: 112px;
+    font-size: 82px;
 
     background:
       transparent;
