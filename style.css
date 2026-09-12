@@ -144,7 +144,7 @@ body::after {
 
   letter-spacing: -0.075em;
 
-  line-height: 0.85;
+  line-height: 1.85;
 
   box-shadow:
     0 3px 12px rgba(57, 255, 20, 0.16);
@@ -599,7 +599,7 @@ body::after {
   .brand {
     font-size: 24px;
 
-    margin-bottom: 28px;
+    margin-bottom: 38px;
   }
 
 
@@ -676,7 +676,7 @@ body::after {
 
     left: 20px;
 
-    bottom: 245px;
+    bottom: 295px;
 
     width:
       calc(100vw - 40px);
