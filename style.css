@@ -216,7 +216,7 @@ body::after {
   background: transparent;
 
   font-size:
-    clamp(70px, 6.5vw, 92px);
+    clamp(80px, 7.5vw, 112px);
 
   font-weight: 900;
 
@@ -609,7 +609,7 @@ body::after {
 
 
   .headline-large {
-    font-size: 92px;
+    font-size: 112px;
   }
 
 
