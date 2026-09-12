@@ -675,7 +675,7 @@ body::after {
 
 @media (max-width: 600px) {
   .content {
-    top: 18vh;
+    top: 15vh;
     left: 20px;
     width: calc(100vw - 40px);
   }
