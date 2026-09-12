@@ -688,9 +688,9 @@ body::after {
   .brand {
     margin-bottom: 17px;
 
-    font-size: 23px;
+    font-size: 28px;
 
-    letter-spacing: -0.075em;
+    letter-spacing: -0.015em;
   }
 
 
@@ -720,7 +720,7 @@ body::after {
       transparent;
 
     color:
-      var(--text-finance);
+      var(--neon-green);
 
     font-size:
       clamp(64px, 6vw, 92px);
