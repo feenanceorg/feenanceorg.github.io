@@ -673,16 +673,13 @@ body::after {
      Footer tetap fixed di bawah.
      ===================================================== */
 
+@media (max-width: 600px) {
   .content {
-    top: auto;
-
+    top: 18vh;
     left: 20px;
-
-    bottom: 295px;
-
-    width:
-      calc(100vw - 40px);
+    width: calc(100vw - 40px);
   }
+}
 
 
   /* =====================================================
@@ -894,10 +891,6 @@ body::after {
    ========================================================= */
 
 @media (max-width: 380px) {
-
-  .content {
-    bottom: 225px;
-  }
 
 
   .brand {
