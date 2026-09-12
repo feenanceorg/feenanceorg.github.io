@@ -206,15 +206,15 @@ document.addEventListener("DOMContentLoaded", () => {
   */
 
 
-  const UNISWAP_URL = "";
+  const UNISWAP_URL = "https://app.uniswap.org/swap?outputCurrency=0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&chain=robinhood";
 
-  const PONSFAM_URL = "";
+  const PONSFAM_URL = "https://www.ponsfamily.com/launchpad/0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-  const X_URL = "";
+  const X_URL = "https://x.com/feenanceorg";
 
-  const TELEGRAM_URL = "";
+  const WEB_URL = "https://feenance.org";
 
-  const GITHUB_URL = "";
+  const GITHUB_URL = "https://github.com/feenancing";
 
 
   /*
@@ -239,8 +239,8 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   setLink(
-    "telegramLink",
-    TELEGRAM_URL
+    "webLink",
+    WEB_URL
   );
 
   setLink(
