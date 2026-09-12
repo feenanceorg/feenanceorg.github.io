@@ -124,7 +124,7 @@ body::after {
 
 .brand {
 
-  margin-top: -20px;
+  margin-top: 0px;
 
   margin-bottom: 50px;
 
@@ -138,13 +138,13 @@ body::after {
 
   color: #13df00;
 
-  font-size: clamp(16px, 2vw, 22px);
+  font-size: clamp(16px, 2vw, 32px);
 
   font-weight: 900;
 
   font-style: italic;
 
-  letter-spacing: -0.035em;
+  letter-spacing: -0.35em;
 
   line-height: 1.85;
 
@@ -389,7 +389,7 @@ body::after {
   color:
     rgba(245, 245, 239, 0.88);
 
-  font-size: 14px;
+  font-size: 18px;
 
   font-weight: 800;
 
@@ -421,7 +421,7 @@ body::after {
     Menlo,
     monospace;
 
-  font-size: 11px;
+  font-size: 18px;
 
   font-weight: 500;
 
