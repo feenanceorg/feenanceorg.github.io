@@ -1,236 +1,303 @@
-/* =========================================
+/* =========================================================
    FEENANCE
-   The Fun Side of Finance
-========================================= */
+   SCRIPT.JS
+   ========================================================= */
 
 
-/* =========================================
-   CONFIGURATION
-========================================= */
+/* =========================================================
+   CONTRACT ADDRESS
+   ========================================================= */
 
-/*
- * GANTI NILAI INI DENGAN SMART CONTRACT
- * ADDRESS FEENANCE YANG SEBENARNYA.
- *
- * CA HANYA DITULIS DI SINI.
- */
-
-const CONTRACT_ADDRESS = "0xFB7710Bc08fE297d648b2617B8c1e25129D1a2F5";
+const CONTRACT_ADDRESS =
+  "0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
 
-/*
- * SOCIAL / BUY LINKS
- *
- * Ganti URL di bawah dengan URL asli.
- */
+/* =========================================================
+   DOM READY
+   ========================================================= */
 
-const TELEGRAM_URL = "#";
+document.addEventListener("DOMContentLoaded", () => {
 
-const X_URL = "#";
+  /*
+     -------------------------------------------------------
+     CONTRACT ADDRESS
+     -------------------------------------------------------
+  */
 
-const UNISWAP_URL = "#";
+  const contractButton =
+    document.getElementById("contractAddress");
 
-const PONSFAMILY_URL = "#";
-
-
-/* =========================================
-   ELEMENTS
-========================================= */
-
-const contractElement =
-    document.getElementById("contract-address");
-
-const copyButton =
-    document.getElementById("copy-ca");
-
-const copyText =
-    document.getElementById("copy-text");
-
-const toast =
-    document.getElementById("toast");
-
-const telegramLink =
-    document.getElementById("telegram-link");
-
-const xLink =
-    document.getElementById("x-link");
-
-const uniswapLink =
-    document.getElementById("uniswap-link");
-
-const ponsfamilyLink =
-    document.getElementById("ponsfamily-link");
+  const copyStatus =
+    document.getElementById("copyStatus");
 
 
-/* =========================================
-   INSERT CONTRACT ADDRESS
-========================================= */
+  if (contractButton) {
 
-if (contractElement) {
-    contractElement.textContent = CONTRACT_ADDRESS;
-}
+    /*
+       Pastikan data-address selalu tersedia.
+    */
 
-
-/* =========================================
-   INSERT LINKS
-========================================= */
-
-if (telegramLink) {
-    telegramLink.href = TELEGRAM_URL;
-}
-
-if (xLink) {
-    xLink.href = X_URL;
-}
-
-if (uniswapLink) {
-    uniswapLink.href = UNISWAP_URL;
-}
-
-if (ponsfamilyLink) {
-    ponsfamilyLink.href = PONSFAMILY_URL;
-}
+    const address =
+      contractButton.dataset.address ||
+      CONTRACT_ADDRESS;
 
 
-/* =========================================
-   COPY CONTRACT ADDRESS
-========================================= */
-
-async function copyContractAddress() {
-
-    try {
-
-        await navigator.clipboard.writeText(
-            CONTRACT_ADDRESS
-        );
-
-        showCopiedState();
-
-    } catch (error) {
-
-        /*
-         * Fallback untuk browser yang tidak
-         * mengizinkan Clipboard API.
-         */
-
-        fallbackCopy();
-
-    }
-}
+    contractButton.dataset.address =
+      address;
 
 
-/* =========================================
-   FALLBACK COPY
-========================================= */
-
-function fallbackCopy() {
-
-    const temporaryInput =
-        document.createElement("textarea");
-
-    temporaryInput.value =
-        CONTRACT_ADDRESS;
-
-    temporaryInput.style.position =
-        "fixed";
-
-    temporaryInput.style.opacity =
-        "0";
-
-    document.body.appendChild(
-        temporaryInput
-    );
-
-    temporaryInput.focus();
-
-    temporaryInput.select();
-
-    try {
-
-        document.execCommand("copy");
-
-        showCopiedState();
-
-    } catch (error) {
-
-        showToast("Copy failed");
-
-    }
-
-    document.body.removeChild(
-        temporaryInput
-    );
-}
+    contractButton.textContent =
+      address;
 
 
-/* =========================================
-   COPIED STATE
-========================================= */
+    /*
+       Klik hanya menyalin ADDRESS.
+       "CA:" tidak ikut disalin.
+    */
 
-function showCopiedState() {
+    contractButton.addEventListener(
+      "click",
+      async () => {
 
-    if (copyText) {
-        copyText.textContent = "✓ COPIED";
-    }
+        try {
 
-    showToast("Copied!");
+          await copyText(address);
 
-    setTimeout(() => {
+          showCopied();
 
-        if (copyText) {
-            copyText.textContent = "COPY CA";
+        } catch (error) {
+
+          console.error(
+            "Unable to copy contract address:",
+            error
+          );
+
         }
 
-    }, 1800);
-}
+      }
+    );
+
+  }
 
 
-/* =========================================
-   TOAST
-========================================= */
+  /*
+     -------------------------------------------------------
+     COPY FUNCTION
+     -------------------------------------------------------
+  */
 
-function showToast(message) {
+  async function copyText(text) {
 
-    if (!toast) {
-        return;
+    /*
+       Modern Clipboard API
+    */
+
+    if (
+      navigator.clipboard &&
+      window.isSecureContext
+    ) {
+
+      await navigator.clipboard.writeText(text);
+
+      return;
+
     }
 
-    toast.textContent = message;
 
-    toast.classList.add("show");
+    /*
+       Fallback untuk browser/local environment
+    */
+
+    const textarea =
+      document.createElement("textarea");
+
+
+    textarea.value = text;
+
+    textarea.style.position =
+      "fixed";
+
+    textarea.style.left =
+      "-9999px";
+
+    textarea.style.top =
+      "0";
+
+    textarea.style.opacity =
+      "0";
+
+
+    document.body.appendChild(
+      textarea
+    );
+
+
+    textarea.focus();
+
+    textarea.select();
+
+
+    const successful =
+      document.execCommand("copy");
+
+
+    textarea.remove();
+
+
+    if (!successful) {
+
+      throw new Error(
+        "Copy command failed."
+      );
+
+    }
+
+  }
+
+
+  /*
+     -------------------------------------------------------
+     COPIED MESSAGE
+     -------------------------------------------------------
+  */
+
+  function showCopied() {
+
+    if (!copyStatus) {
+      return;
+    }
+
+
+    copyStatus.classList.add(
+      "show"
+    );
+
 
     clearTimeout(
-        window.feenanceToastTimer
+      showCopied.timer
     );
 
-    window.feenanceToastTimer =
-        setTimeout(() => {
 
-            toast.classList.remove("show");
+    showCopied.timer =
+      setTimeout(() => {
 
-        }, 1600);
-}
+        copyStatus.classList.remove(
+          "show"
+        );
+
+      }, 1500);
+
+  }
 
 
-/* =========================================
-   CLICK EVENTS
-========================================= */
+  /*
+     -------------------------------------------------------
+     LINKS
+     -------------------------------------------------------
+     
+     Masukkan URL asli di sini nanti.
+     
+     Contoh:
+     
+     const UNISWAP_URL =
+       "https://...";
+     
+     -------------------------------------------------------
+  */
 
-if (copyButton) {
 
-    copyButton.addEventListener(
+  const UNISWAP_URL = "";
+
+  const PONSFAM_URL = "";
+
+  const X_URL = "";
+
+  const TELEGRAM_URL = "";
+
+  const GITHUB_URL = "";
+
+
+  /*
+     -------------------------------------------------------
+     SET LINKS
+     -------------------------------------------------------
+  */
+
+  setLink(
+    "uniswapLink",
+    UNISWAP_URL
+  );
+
+  setLink(
+    "ponsfamLink",
+    PONSFAM_URL
+  );
+
+  setLink(
+    "xLink",
+    X_URL
+  );
+
+  setLink(
+    "telegramLink",
+    TELEGRAM_URL
+  );
+
+  setLink(
+    "githubLink",
+    GITHUB_URL
+  );
+
+
+  /*
+     -------------------------------------------------------
+     LINK HELPER
+     -------------------------------------------------------
+  */
+
+  function setLink(
+    elementId,
+    url
+  ) {
+
+    const element =
+      document.getElementById(
+        elementId
+      );
+
+
+    if (!element) {
+      return;
+    }
+
+
+    /*
+       Kalau URL belum diisi,
+       jangan arahkan ke "#".
+    */
+
+    if (
+      !url ||
+      url.trim() === ""
+    ) {
+
+      element.addEventListener(
         "click",
-        copyContractAddress
-    );
+        (event) => {
 
-}
+          event.preventDefault();
+
+        }
+      );
+
+      return;
+
+    }
 
 
-if (contractElement) {
+    element.href =
+      url;
 
-    contractElement.addEventListener(
-        "click",
-        copyContractAddress
-    );
+  }
 
-}
+});
