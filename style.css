@@ -136,15 +136,15 @@ body::after {
 
   background: #013811;
 
-  color: #13df00;
+  color: #fff;
 
-  font-size: clamp(16px, 2vw, 32px);
+  font-size: clamp(16px, 2vw, 72px);
 
   font-weight: 900;
 
   font-style: italic;
 
-  letter-spacing: -0.35em;
+  letter-spacing: -0.025em;
 
   line-height: 1.85;
 
@@ -213,16 +213,16 @@ body::after {
 
   margin: 2px 0 0 0;
 
-  color: var(--text-finance);
+  color: var(--neon-green);
 
   background: transparent;
 
   font-size:
-    clamp(64px, 6vw, 122px);
+    clamp(64px, 6vw, 200px);
 
   font-weight: 900;
 
-  letter-spacing: -0.07em;
+  letter-spacing: -0.05em;
 
   line-height: 0.86;
 
