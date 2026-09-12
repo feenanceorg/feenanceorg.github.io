@@ -182,7 +182,7 @@ body::after {
   color: var(--text-main);
 
   font-size:
-    clamp(25px, 2.45vw, 36px);
+    clamp(18px, 4.5vw, 23px);
 
   font-weight: 800;
 
@@ -216,7 +216,7 @@ body::after {
   background: transparent;
 
   font-size:
-    clamp(80px, 7.5vw, 112px);
+    clamp(64px, 6vw, 92px);
 
   font-weight: 900;
 
@@ -604,12 +604,12 @@ body::after {
 
 
   .headline-small {
-    font-size: 24px;
+    font-size: 23px;
   }
 
 
   .headline-large {
-    font-size: 112px;
+    font-size: 92px;
   }
 
 
@@ -702,7 +702,7 @@ body::after {
 
   .headline-small {
     font-size:
-      clamp(19px, 5.8vw, 26px);
+      clamp(18px, 4.5vw, 23px);
 
     line-height: 1;
 
@@ -725,9 +725,9 @@ body::after {
       var(--text-finance);
 
     font-size:
-      clamp(43px, 13.5vw, 61px);
+      clamp(64px, 6vw, 92px);
 
-    line-height: 0.87;
+    line-height: 0.88;
 
     border-radius: 0;
 
@@ -906,12 +906,12 @@ body::after {
 
 
   .headline-small {
-    font-size: 19px;
+    font-size: 18px;
   }
 
 
   .headline-large {
-    font-size: 43px;
+    font-size: 92px;
 
     background:
       transparent;
