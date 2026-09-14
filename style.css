@@ -846,6 +846,25 @@ body::after {
     font-size: 9px;
   }
 
+   /* =====================================================
+   FEE
+   ===================================================== */
+  .site-fees {
+    left: 20px;
+
+    right: 20px;
+
+    bottom:
+      max(10px, env(safe-area-inset-bottom));
+
+    width: auto;
+
+    padding-top: 7px;
+
+    gap: 10px;
+
+    font-size: 8px;
+  }
 
   /* =====================================================
      FOOTER
