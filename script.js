@@ -9,7 +9,7 @@
    ========================================================= */
 
 const CONTRACT_ADDRESS =
-  "0x6335ac7b5705585A09AFE9F312F33Ac2dc73Ced8";
+  "0x104bff8794f51e6FAA627CD1d3dB92F3843484Af";
 
 
 /* =========================================================
@@ -206,9 +206,9 @@ document.addEventListener("DOMContentLoaded", () => {
   */
 
 
-  const UNISWAP_URL = "https://app.uniswap.org/swap?outputCurrency=0x6335ac7b5705585A09AFE9F312F33Ac2dc73Ced8&chain=robinhood";
+  const UNISWAP_URL = "https://app.uniswap.org/swap?outputCurrency=0x104bff8794f51e6FAA627CD1d3dB92F3843484Af&chain=robinhood";
 
-  const PONSFAM_URL = "https://www.ponsfamily.com/launchpad/0x6335ac7b5705585A09AFE9F312F33Ac2dc73Ced8";
+  const PONSFAM_URL = "https://www.ponsfamily.com/launchpad/0x104bff8794f51e6FAA627CD1d3dB92F3843484Af";
 
   const X_URL = "https://x.com/feenanceorg";
 
